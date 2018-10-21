@@ -17,12 +17,12 @@ namespace WebApiPlayground.HttpClientDemo
 
         public async Task<IEnumerable<string>> GetDocuments()
         {
-            string documents = await _client.GetStringAsync("/documents");
+            string documents = await _client.GetStringAsync("/api/v2/People");
             return documents.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
         public async Task<string> GetDocument(int documentId)
-            => await _client.GetStringAsync($"/documents/{documentId}");
+            => await _client.GetStringAsync($"/api/v2/People/{documentId}");
 
         public async Task<HttpStatusCode> AddDocument(string document)
         {

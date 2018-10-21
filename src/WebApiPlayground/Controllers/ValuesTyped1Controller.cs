@@ -19,7 +19,7 @@ namespace WebApiPlayground.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<string>>> Get()
         {
-            var result = await _myJobClient.Client.GetStringAsync($"http://sampleaspnetcorewebapi.azurewebsites.net/api/v2/People/");
+            var result = await _myJobClient.Client.GetStringAsync("/api/v2/People");
 
             return Ok(result);
         }
@@ -27,7 +27,7 @@ namespace WebApiPlayground.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> Get(int id)
         {
-            var result = await _myJobClient.Client.GetStringAsync($"http://sampleaspnetcorewebapi.azurewebsites.net/api/v2/People/{id}");
+            var result = await _myJobClient.Client.GetStringAsync($"/api/v2/People/{id}");
 
             return Ok(result);
         }

@@ -43,22 +43,20 @@ namespace WebApiPlayground.Controllers
 
         #region Named Client
 
-        [HttpGet]
-        [Route("named")]
+        [HttpGet("named")]
         public async Task<ActionResult<IEnumerable<string>>> Named()
         {
             var client = _httpClientFactory.CreateClient(NamedHttpClients.MyJob);
-            var result = await client.GetStringAsync("/");
+            var result = await client.GetStringAsync("/api/v2/People");
 
             return Ok(result);
         }
 
-        [HttpGet("{id}")]
-        [Route("named/{id}")]
+        [HttpGet("named/{id}")]
         public async Task<ActionResult<string>> Named(int id)
         {
             var client = _httpClientFactory.CreateClient(NamedHttpClients.MyJob);
-            var result = await client.GetStringAsync($"/{id}");
+            var result = await client.GetStringAsync($"/api/v2/People/{id}");
 
             return Ok(result);
         }

@@ -24,7 +24,7 @@ namespace WebApiPlayground
         {
             // Configure HttpClients.
             //ConfigureSimpleHttpClient(services);
-            ConfigureNamedHttpClient(services);
+            //ConfigureNamedHttpClient(services);
             //ConfigureTypedHttpClient1(services);
             //ConfigureTypedHttpClient2(services);
 
@@ -40,34 +40,34 @@ namespace WebApiPlayground
         {
             services.AddHttpClient(NamedHttpClients.MyJob, client =>
             {
-                client.BaseAddress = new Uri("https://myjob.kros.sk/api/v1");
+                client.BaseAddress = new Uri("http://sampleaspnetcorewebapi.azurewebsites.net");
                 client.DefaultRequestHeaders.Add("User-Agent", "KROS Backup Service");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
-            })
-            .ConfigureHttpMessageHandlerBuilder(handlerBuilder => new HttpClientHandler() { Proxy = GetProxy() });
+            });
+            //.ConfigureHttpMessageHandlerBuilder(handlerBuilder => new HttpClientHandler() { Proxy = GetProxy() });
 
             services.AddHttpClient(NamedHttpClients.MyJobV2, client =>
             {
-                client.BaseAddress = new Uri("https://myjob.kros.sk/api/v2");
+                client.BaseAddress = new Uri("http://sampleaspnetcorewebapi.azurewebsites.net");
                 client.DefaultRequestHeaders.Add("User-Agent", "KROS Backup Service");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
                 //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
-            })
-            .ConfigureHttpMessageHandlerBuilder(handlerBuilder => new HttpClientHandler() { Proxy = GetProxy() });
+            });
+            //.ConfigureHttpMessageHandlerBuilder(handlerBuilder => new HttpClientHandler() { Proxy = GetProxy() });
         }
 
         public void ConfigureTypedHttpClient1(IServiceCollection services)
         {
             services.AddHttpClient<MyJobClient>(client =>
             {
-                client.BaseAddress = new Uri("https://myjob.kros.sk/api/v1");
+                client.BaseAddress = new Uri("http://sampleaspnetcorewebapi.azurewebsites.net");
                 client.DefaultRequestHeaders.Add("User-Agent", "KROS Backup Service");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
             });
         }
 
@@ -75,15 +75,15 @@ namespace WebApiPlayground
         {
             services.AddHttpClient<IMyJobClient, MyJobClientV2>(client =>
             {
-                client.BaseAddress = new Uri("https://myjob.kros.sk/api/v1");
+                client.BaseAddress = new Uri("http://sampleaspnetcorewebapi.azurewebsites.net");
                 client.DefaultRequestHeaders.Add("User-Agent", "KROS Backup Service");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
-                client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json; charset=utf-8");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Accept-Encoding", "gzip");
+                //client.DefaultRequestHeaders.TryAddWithoutValidation("Content-Type", "application/json; charset=utf-8");
             });
         }
 
-        private static IWebProxy GetProxy() => new WebProxy("192.168.1.3:3128", true);
+        private static IWebProxy GetProxy() => null; // new WebProxy("192.168.1.3:3128", true);
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
