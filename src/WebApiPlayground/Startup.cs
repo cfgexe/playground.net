@@ -19,7 +19,7 @@ namespace WebApiPlayground
 
         public IConfiguration Configuration { get; }
 
-        #region Do Not Use It This Way Client
+        #region Do Not Use Client This Way
 
         private async void DoNotUseItThisWayClient()
         {
