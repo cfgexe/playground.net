@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2046
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsolePlayground", "src\ConsolePlayground\ConsolePlayground.csproj", "{98BF481A-595F-4022-A40E-49025443B87E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiPlayground", "src\WebApiPlayground\WebApiPlayground.csproj", "{C5869751-3701-4A81-A6A3-3A42CFF617F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiPlayground", "src\WebApiPlayground\WebApiPlayground.csproj", "{C5869751-3701-4A81-A6A3-3A42CFF617F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureWebApp", "src\AzureWebApp\AzureWebApp.csproj", "{BF14DF9D-0D9E-422F-80D2-5F91B136E353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionApp", "src\AzureFunctionApp\AzureFunctionApp.csproj", "{5E030D2F-1138-4DDB-BFBB-1A885CFFAD3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{C5869751-3701-4A81-A6A3-3A42CFF617F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5869751-3701-4A81-A6A3-3A42CFF617F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5869751-3701-4A81-A6A3-3A42CFF617F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF14DF9D-0D9E-422F-80D2-5F91B136E353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF14DF9D-0D9E-422F-80D2-5F91B136E353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF14DF9D-0D9E-422F-80D2-5F91B136E353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF14DF9D-0D9E-422F-80D2-5F91B136E353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E030D2F-1138-4DDB-BFBB-1A885CFFAD3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E030D2F-1138-4DDB-BFBB-1A885CFFAD3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E030D2F-1138-4DDB-BFBB-1A885CFFAD3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E030D2F-1138-4DDB-BFBB-1A885CFFAD3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

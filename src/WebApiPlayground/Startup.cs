@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -40,7 +41,7 @@ namespace WebApiPlayground
             //ConfigureTypedHttpClient1(services);
             //ConfigureTypedHttpClient2(services);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
         }
 
         public void ConfigureNamedHttpClient(IServiceCollection services)
@@ -86,7 +87,7 @@ namespace WebApiPlayground
         private static IWebProxy GetProxy() => new WebProxy("192.168.1.3:3128", true);
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -98,7 +99,6 @@ namespace WebApiPlayground
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
         }
     }
 }
